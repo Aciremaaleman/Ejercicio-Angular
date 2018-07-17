@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <!-- ESTA FORMA TAMBIEN FUNCIONA CON EL href PERO SE RECARGA CADA VEZ QUE ELIJES UN NAV DIFERENTE -->
+      <!-- <a mat-list-item href="./listnews">listnews</a> -->
+      <a mat-list-item [routerLink]="['/listnews']" [routerLinkActive]="['active']">
+        LIST NEWS
+      </a>
+      <!-- <a mat-list-item href="./todo">todo</a> -->
+      <a mat-list-item [routerLink]="['/todo']" [routerLinkActive]="['active']">
+        TO DO
+      </a>
+      <!-- <a mat-list-item href="./bitcoins">bitcoins</a> -->
+      <a mat-list-item [routerLink]="['/bitcoins']" [routerLinkActive]="['active']">
+        BITCOINS
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>MY ANGULAR APP</span>
+    </mat-toolbar>
+    <!-- LA ETIQUETA router-outlet DEBE IR DENTRO DEL NAV PARA QUE TE MUESTRE EL CONTENIDO SI NO ESTA NO SE MOSTRARA EL CONTENIDO DE CADA SECCION -->
+    <router-outlet></router-outlet> 
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
