@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NewServiceService } from '../new-service.service';
-import { log } from 'util';
-import { log } from 'util';
-import { getMatFormFieldMissingControlError } from '@angular/material';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +7,7 @@ import { getMatFormFieldMissingControlError } from '@angular/material';
   styleUrls: ['./list.component.css'],
   template: `
   <mat-list>
-    <p mat-subheader>News</p>
+    <p mat-subheader>NEWS</p>
     <mat-divider></mat-divider>
       <mat-list-item *ngFor="let item of listNews">
         <mat-icon mat-list-icon>thumbs-up</mat-icon>
@@ -31,9 +28,8 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this._newServiceService.getNews()
         .subscribe( items => this.listNews = items,
-                    error => console.log('ERROR TO GET THE NEWS'));
+                    error => error = console.log('ERROR TO GET THE NEWS'));
 
   }
-
 }
 

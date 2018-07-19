@@ -33,7 +33,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Crear una applicación Angular (con la ayuda de angular-cli) que tenga las siguientes características:
 
-### Navegación por rutas de tres diferentes páginas (10 Puntos)
+- Navegación por rutas de tres diferentes páginas (10 Puntos)
 
 - Listado de Hacker News cargadas desde la URL: http://node-hnapi.herokuapp.com/news conla liga a cada noticia. (10 Puntos)
 
