@@ -13,19 +13,17 @@ export class TodoService {
 
   addText(new_item: string): Array<string> {
     this.colection_text.push(this.new_item);
-
     return this.getText();
   }
 
   getText() {
-      return this.colection_text ;
+    this.colection_text = JSON.parse(localStorage.getItem('key'));
+    return this.colection_text ;
   }
 
   deleteText(index: number): Array<string> {
       this.colection_text.splice(index, 1);
-
       return this.getText();
-
   }
 
 }

@@ -11,12 +11,8 @@ export class TodoComponent implements OnInit {
 
   public new_Text: string;
   public list_Text: Array<any>;
-  public check: boolean;
 
-  constructor(private _todoService: TodoService) {
-    
-
-  }
+  constructor(private _todoService: TodoService) {}
 
   ngOnInit() {
     console.log(this.list_Text = this._todoService.getText());
@@ -25,12 +21,13 @@ export class TodoComponent implements OnInit {
 
   addtodo() {
     this.list_Text.push(this.new_Text);
-    localStorage.setItem('textItem', JSON.stringify(this.list_Text));
+    localStorage.setItem('key', JSON.stringify(this.list_Text));
     this.new_Text = null;
   }
 
   deleteItem(index: number) {
     this._todoService.deleteText(index);
+    // this._todoService.deleteText(localStorage.removeItem('key'));
   }
 
 }
@@ -47,4 +44,4 @@ export class TodoComponent implements OnInit {
   //   let localS = localStorage.getItem('textItem');
   // }
 
-}
+

@@ -5,11 +5,11 @@
       <form class="example-full-width">
         <input matInput placeholder="TO DO" type="text" 
         [(ngModel)]="new_Text"
-        [ngModelOptions]="{standalone: true}" >
+        [ngModelOptions]="{standalone: true}" 
+        (keyup.enter)="addtodo()">
       </form>
 
       <!-- [value]="new_Text"  -->
-      <!-- (keyup.enter)="addtodo()"> -->
       <!-- (input)="newTextChanged(todoInput.value)"  TAMBIEN SIRVE PARA AL DAR CLICK MUESTRE EL VALOR DEL INPUT CON LA FUNCION EN TS -->
     </mat-form-field>
     <button mat-icon-button color="primary" type="submit" (click)="addtodo()">Add</button>
@@ -23,10 +23,8 @@
     <mat-list-option>
       {{i}}
       {{item}}
-    </mat-list-option>
-    <!-- <i  ng-mouseenter="expression" style="margin-left: 94%" (click)="deleteItem(i)" class="material-icons md-48">delete_forever</i> -->
-      
-    <button style="margin-left: 93%" (click)="deleteItem(i)">
+    </mat-list-option>      
+    <button style="margin-left: 93%; border: none" (click)="deleteItem(i)">
       <i class="material-icons md-48">delete_forever</i>
     </button>
   </mat-selection-list>
